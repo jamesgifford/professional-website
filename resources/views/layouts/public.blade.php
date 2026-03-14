@@ -12,7 +12,7 @@
         </div>
 
         {{-- Navigation --}}
-        <header class="fixed top-0 inset-x-0 z-50">
+        <header class="fixed top-0 inset-x-0 z-50 bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md">
             <nav class="mx-auto max-w-5xl flex items-center justify-between px-6 py-5">
                 <a href="{{ route('home') }}" class="font-mono text-lg font-medium tracking-tight text-zinc-900 dark:text-zinc-100">
                     jg<span class="text-emerald-600 dark:text-emerald-400">.</span>
