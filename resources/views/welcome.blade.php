@@ -19,6 +19,23 @@
                     <a href="#about" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">about</a>
                     <a href="#work" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">work</a>
                     <a href="#contact" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">contact</a>
+
+                    {{-- Dark mode toggle --}}
+                    <flux:dropdown x-data align="end">
+                        <flux:button variant="subtle" square size="sm" aria-label="Preferred color scheme">
+                            <flux:icon.sun x-show="$flux.appearance === 'light'" variant="mini" />
+                            <flux:icon.moon x-show="$flux.appearance === 'dark'" variant="mini" />
+                            <flux:icon.moon x-show="$flux.appearance === 'system' && $flux.dark" variant="mini" />
+                            <flux:icon.sun x-show="$flux.appearance === 'system' && ! $flux.dark" variant="mini" />
+                        </flux:button>
+
+                        <flux:menu>
+                            <flux:menu.item icon="sun" x-on:click="$flux.appearance = 'light'">Light</flux:menu.item>
+                            <flux:menu.item icon="moon" x-on:click="$flux.appearance = 'dark'">Dark</flux:menu.item>
+                            <flux:menu.item icon="computer-desktop" x-on:click="$flux.appearance = 'system'">System</flux:menu.item>
+                        </flux:menu>
+                    </flux:dropdown>
+
                     @if (Route::has('login'))
                         @auth
                             <a href="{{ route('dashboard') }}" class="font-mono text-xs px-3 py-1.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors">dashboard</a>
@@ -178,5 +195,7 @@
                 </p>
             </div>
         </footer>
+
+        @fluxScripts
     </body>
 </html>
