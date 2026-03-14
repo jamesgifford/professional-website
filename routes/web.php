@@ -22,7 +22,7 @@ Route::get('thoughts/{post:slug}', function (Post $post) {
 // Public projects
 Route::get('projects', function () {
     return view('projects.index', [
-        'projects' => Project::query()->published()->orderBy('sort_order')->latest('published_at')->get(),
+        'projects' => Project::query()->published()->orderBy('sort_order')->latest('published_at')->simplePaginate(5),
     ]);
 })->name('projects.index');
 

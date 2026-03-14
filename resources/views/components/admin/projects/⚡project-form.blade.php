@@ -2,6 +2,7 @@
 
 use App\Models\Project;
 use App\Models\ProjectScreenshot;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -18,6 +19,10 @@ new class extends Component
     public string $url = '';
     public string $technologiesInput = '';
     public bool $published = false;
+
+    /** @var \Livewire\Features\SupportFileUploads\TemporaryUploadedFile|null */
+    public $newFeaturedImage = null;
+    public bool $removeFeaturedImage = false;
 
     /** @var array<int, \Livewire\Features\SupportFileUploads\TemporaryUploadedFile> */
     public array $newScreenshots = [];
@@ -48,6 +53,12 @@ new class extends Component
         }
     }
 
+    public function removeFeaturedImage(): void
+    {
+        $this->removeFeaturedImage = true;
+        $this->newFeaturedImage = null;
+    }
+
     public function removeExistingScreenshot(int $index): void
     {
         unset($this->existingScreenshots[$index]);
@@ -69,6 +80,7 @@ new class extends Component
             'url' => ['nullable', 'url', 'max:255'],
             'technologiesInput' => ['nullable', 'string'],
             'published' => ['boolean'],
+            'newFeaturedImage' => ['nullable', 'image', 'max:5120'],
             'newScreenshots' => ['array'],
             'newScreenshots.*' => ['image', 'max:5120'],
         ]);
@@ -84,6 +96,16 @@ new class extends Component
             'url' => $validated['url'] ?: null,
             'technologies' => $technologies,
         ];
+
+        if ($this->newFeaturedImage) {
+            if ($this->project?->featured_image) {
+                Storage::disk('public')->delete($this->project->featured_image);
+            }
+            $data['featured_image'] = $this->newFeaturedImage->store('featured-images', 'public');
+        } elseif ($this->removeFeaturedImage && $this->project?->featured_image) {
+            Storage::disk('public')->delete($this->project->featured_image);
+            $data['featured_image'] = null;
+        }
 
         if ($validated['published'] && ! $this->project?->published_at) {
             $data['published_at'] = now();
@@ -133,6 +155,27 @@ new class extends Component
         <flux:input wire:model="url" :label="__('URL')" type="url" placeholder="https://" />
 
         <flux:input wire:model="technologiesInput" :label="__('Technologies')" :description="__('Comma-separated list (e.g. Laravel, Tailwind CSS, MySQL)')" />
+
+        {{-- Featured image --}}
+        <flux:field>
+            <flux:label>{{ __('Featured Image') }}</flux:label>
+            @if ($project?->featured_image && ! $removeFeaturedImage)
+                <div class="relative group rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-700 mt-2 max-w-sm">
+                    <img src="{{ Storage::disk('public')->url($project->featured_image) }}" alt="" class="w-full aspect-video object-cover" />
+                    <button type="button" wire:click="removeFeaturedImage" class="absolute top-2 right-2 size-6 rounded-full bg-red-500 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-xs">
+                        &times;
+                    </button>
+                </div>
+            @else
+                <input type="file" wire:model="newFeaturedImage" accept="image/*" class="mt-2 text-sm text-zinc-600 dark:text-zinc-400" />
+                @if ($newFeaturedImage)
+                    <div class="rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-700 mt-2 max-w-sm">
+                        <img src="{{ $newFeaturedImage->temporaryUrl() }}" alt="" class="w-full aspect-video object-cover" />
+                    </div>
+                @endif
+            @endif
+            <flux:error name="newFeaturedImage" />
+        </flux:field>
 
         {{-- Existing screenshots --}}
         @if (count($existingScreenshots))

@@ -17,6 +17,7 @@ class Project extends Model
         'name',
         'slug',
         'description',
+        'featured_image',
         'url',
         'technologies',
         'sort_order',

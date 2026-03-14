@@ -1,11 +1,15 @@
 <?php
 
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 new class extends Component
 {
+    use WithFileUploads;
+
     public ?Post $post = null;
 
     public string $title = '';
@@ -13,6 +17,10 @@ new class extends Component
     public string $excerpt = '';
     public string $body = '';
     public bool $published = false;
+
+    /** @var \Livewire\Features\SupportFileUploads\TemporaryUploadedFile|null */
+    public $newFeaturedImage = null;
+    public bool $removeFeaturedImage = false;
 
     public function mount(?Post $post = null): void
     {
@@ -33,6 +41,12 @@ new class extends Component
         }
     }
 
+    public function removeFeaturedImage(): void
+    {
+        $this->removeFeaturedImage = true;
+        $this->newFeaturedImage = null;
+    }
+
     public function save(): void
     {
         $validated = $this->validate([
@@ -41,6 +55,7 @@ new class extends Component
             'excerpt' => ['nullable', 'string', 'max:500'],
             'body' => ['required', 'string'],
             'published' => ['boolean'],
+            'newFeaturedImage' => ['nullable', 'image', 'max:5120'],
         ]);
 
         $data = [
@@ -49,6 +64,16 @@ new class extends Component
             'excerpt' => $validated['excerpt'] ?: null,
             'body' => $validated['body'],
         ];
+
+        if ($this->newFeaturedImage) {
+            if ($this->post?->featured_image) {
+                Storage::disk('public')->delete($this->post->featured_image);
+            }
+            $data['featured_image'] = $this->newFeaturedImage->store('featured-images', 'public');
+        } elseif ($this->removeFeaturedImage && $this->post?->featured_image) {
+            Storage::disk('public')->delete($this->post->featured_image);
+            $data['featured_image'] = null;
+        }
 
         if ($validated['published'] && ! $this->post?->published_at) {
             $data['published_at'] = now();
@@ -82,6 +107,27 @@ new class extends Component
         <flux:textarea wire:model="excerpt" :label="__('Excerpt')" :description="__('A short summary shown on the blog listing.')" rows="2" />
 
         <flux:textarea wire:model="body" :label="__('Content')" rows="15" required />
+
+        {{-- Featured image --}}
+        <flux:field>
+            <flux:label>{{ __('Featured Image') }}</flux:label>
+            @if ($post?->featured_image && ! $removeFeaturedImage)
+                <div class="relative group rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-700 mt-2 max-w-sm">
+                    <img src="{{ Storage::disk('public')->url($post->featured_image) }}" alt="" class="w-full aspect-video object-cover" />
+                    <button type="button" wire:click="removeFeaturedImage" class="absolute top-2 right-2 size-6 rounded-full bg-red-500 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-xs">
+                        &times;
+                    </button>
+                </div>
+            @else
+                <input type="file" wire:model="newFeaturedImage" accept="image/*" class="mt-2 text-sm text-zinc-600 dark:text-zinc-400" />
+                @if ($newFeaturedImage)
+                    <div class="rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-700 mt-2 max-w-sm">
+                        <img src="{{ $newFeaturedImage->temporaryUrl() }}" alt="" class="w-full aspect-video object-cover" />
+                    </div>
+                @endif
+            @endif
+            <flux:error name="newFeaturedImage" />
+        </flux:field>
 
         <flux:field variant="inline">
             <flux:label>{{ __('Publish') }}</flux:label>

@@ -17,6 +17,7 @@ class Post extends Model
         'slug',
         'excerpt',
         'body',
+        'featured_image',
         'published_at',
     ];
 
