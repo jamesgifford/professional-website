@@ -21,6 +21,9 @@
                     <flux:sidebar.item icon="document-text" :href="route('admin.blog.index')" :current="request()->routeIs('admin.blog.*')" wire:navigate>
                         {{ __('Blog Posts') }}
                     </flux:sidebar.item>
+                    <flux:sidebar.item icon="squares-2x2" :href="route('admin.projects.index')" :current="request()->routeIs('admin.projects.*')" wire:navigate>
+                        {{ __('Projects') }}
+                    </flux:sidebar.item>
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 

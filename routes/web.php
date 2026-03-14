@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Post;
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
@@ -18,6 +19,21 @@ Route::get('thoughts/{post:slug}', function (Post $post) {
     return view('blog.show', ['post' => $post]);
 })->name('blog.show');
 
+// Public projects
+Route::get('projects', function () {
+    return view('projects.index', [
+        'projects' => Project::query()->published()->orderBy('sort_order')->latest('published_at')->get(),
+    ]);
+})->name('projects.index');
+
+Route::get('projects/{project:slug}', function (Project $project) {
+    abort_unless($project->isPublished(), 404);
+
+    return view('projects.show', [
+        'project' => $project->load('screenshots'),
+    ]);
+})->name('projects.show');
+
 // Authenticated routes
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
@@ -28,6 +44,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::view('create', 'admin.blog.create')->name('create');
         Route::get('{post}/edit', function (Post $post) {
             return view('admin.blog.edit', ['post' => $post]);
+        })->name('edit');
+    });
+
+    // Admin project management
+    Route::prefix('admin/projects')->name('admin.projects.')->group(function () {
+        Route::view('/', 'admin.projects.index')->name('index');
+        Route::view('create', 'admin.projects.create')->name('create');
+        Route::get('{project}/edit', function (Project $project) {
+            return view('admin.projects.edit', ['project' => $project]);
         })->name('edit');
     });
 });

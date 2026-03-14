@@ -20,6 +20,7 @@
                 <div class="flex items-center gap-6">
                     <a href="{{ route('home') }}#about" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">about</a>
                     <a href="{{ route('home') }}#work" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">work</a>
+                    <a href="{{ route('projects.index') }}" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors {{ request()->routeIs('projects.*') ? '!text-zinc-900 dark:!text-zinc-100' : '' }}">projects</a>
                     <a href="{{ route('blog.index') }}" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors {{ request()->routeIs('blog.*') ? '!text-zinc-900 dark:!text-zinc-100' : '' }}">thoughts</a>
                     <a href="{{ route('home') }}#contact" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">contact</a>
                 </div>
