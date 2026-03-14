@@ -12,12 +12,13 @@
         {{-- Navigation --}}
         <header class="fixed top-0 inset-x-0 z-50">
             <nav class="mx-auto max-w-5xl flex items-center justify-between px-6 py-5">
-                <a href="{{ route('home') }}" class="font-mono text-sm font-medium tracking-tight text-zinc-900 dark:text-zinc-100">
+                <a href="{{ route('home') }}" class="font-mono text-lg font-medium tracking-tight text-zinc-900 dark:text-zinc-100">
                     jg<span class="text-emerald-600 dark:text-emerald-400">.</span>
                 </a>
                 <div class="flex items-center gap-6">
                     <a href="#about" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">about</a>
                     <a href="#work" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">work</a>
+                    <a href="{{ route('blog.index') }}" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">thoughts</a>
                     <a href="#contact" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">contact</a>
 
                     @if (Route::has('login'))

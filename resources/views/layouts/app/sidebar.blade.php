@@ -16,6 +16,12 @@
                         {{ __('Dashboard') }}
                     </flux:sidebar.item>
                 </flux:sidebar.group>
+
+                <flux:sidebar.group :heading="__('Content')" class="grid">
+                    <flux:sidebar.item icon="document-text" :href="route('admin.blog.index')" :current="request()->routeIs('admin.blog.*')" wire:navigate>
+                        {{ __('Blog Posts') }}
+                    </flux:sidebar.item>
+                </flux:sidebar.group>
             </flux:sidebar.nav>
 
             <flux:spacer />
