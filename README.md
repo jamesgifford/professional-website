@@ -47,6 +47,6 @@ php artisan test
 
 ## Contact
 
-- **Email**: hello@jamesgifford.dev
+- **Email**: james@jamesgifford.com
 - **GitHub**: [github.com/jamesgifford](https://github.com/jamesgifford)
 - **LinkedIn**: [linkedin.com/in/jamesgifford](https://linkedin.com/in/jamesgifford)
