@@ -12,10 +12,11 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->create([
+        User::create([
             'name' => 'James Gifford',
             'email' => 'james@jamesgifford.com',
-            'password' => 'Password123456',
+            'password' => '$2y$12$i2fTpH4vHv/Ok2.5UU8IFexTmfnEAExlMTDYgxO7whyQOP0dOUIGO',
+            'email_verified_at' => now(),
         ]);
     }
 }
