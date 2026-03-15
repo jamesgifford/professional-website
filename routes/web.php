@@ -6,6 +6,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
 
+Route::get('robots.txt', function () {
+    return response("User-agent: *\nDisallow: /admin/\nDisallow: /dashboard\n\nSitemap: ".route('sitemap'), 200)
+        ->header('Content-Type', 'text/plain');
+});
+
+Route::get('sitemap.xml', function () {
+    $posts = Post::query()->published()->latest('published_at')->get();
+    $projects = Project::query()->published()->orderBy('sort_order')->get();
+
+    return response()
+        ->view('sitemap', compact('posts', 'projects'))
+        ->header('Content-Type', 'application/xml');
+})->name('sitemap');
+
 // Public thoughts (blog)
 Route::get('thoughts', function () {
     return view('blog.index', [

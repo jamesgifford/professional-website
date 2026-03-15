@@ -1,4 +1,4 @@
-<x-layouts::public title="Thoughts">
+<x-layouts::public title="Thoughts" metaDescription="Thoughts on software, engineering, and building things by James Gifford." canonicalUrl="{{ route('blog.index') }}">
     <section class="px-6 py-16 sm:py-24">
         <div class="mx-auto max-w-5xl">
             <div class="mb-12">

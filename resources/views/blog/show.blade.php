@@ -1,4 +1,28 @@
-<x-layouts::public :title="$post->title">
+<x-layouts::public
+    :title="$post->title"
+    :metaDescription="$post->excerpt"
+    :metaImage="$post->featured_image ? Storage::disk('public')->url($post->featured_image) : null"
+    ogType="article"
+    :canonicalUrl="route('blog.show', $post)"
+>
+    @push('json-ld')
+        <script type="application/ld+json">
+            {!! json_encode([
+                '@context' => 'https://schema.org',
+                '@type' => 'Article',
+                'headline' => $post->title,
+                'description' => $post->excerpt,
+                'datePublished' => $post->published_at->toIso8601String(),
+                'author' => [
+                    '@type' => 'Person',
+                    'name' => 'James Gifford',
+                    'url' => route('home'),
+                ],
+                'url' => route('blog.show', $post),
+            ] + ($post->featured_image ? ['image' => Storage::disk('public')->url($post->featured_image)] : []), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+        </script>
+    @endpush
+
     <article class="px-6 py-16 sm:py-24">
         <div class="mx-auto max-w-3xl">
             {{-- Header --}}

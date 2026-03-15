@@ -1,4 +1,26 @@
-<x-layouts::public :title="$project->name">
+<x-layouts::public
+    :title="$project->name"
+    :metaDescription="Str::limit(strip_tags($project->description), 160)"
+    :metaImage="$project->featured_image ? Storage::disk('public')->url($project->featured_image) : null"
+    :canonicalUrl="route('projects.show', $project)"
+>
+    @push('json-ld')
+        <script type="application/ld+json">
+            {!! json_encode([
+                '@context' => 'https://schema.org',
+                '@type' => 'SoftwareApplication',
+                'name' => $project->name,
+                'description' => Str::limit(strip_tags($project->description), 160),
+                'author' => [
+                    '@type' => 'Person',
+                    'name' => 'James Gifford',
+                    'url' => route('home'),
+                ],
+                'url' => route('projects.show', $project),
+            ] + ($project->featured_image ? ['image' => Storage::disk('public')->url($project->featured_image)] : []) + ($project->url ? ['installUrl' => $project->url] : []), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+        </script>
+    @endpush
+
     <article class="px-6 py-16 sm:py-24">
         <div class="mx-auto max-w-3xl">
             {{-- Header --}}

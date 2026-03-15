@@ -1,9 +1,15 @@
-@props(['title' => null])
+@props(['title' => null, 'metaDescription' => null, 'metaImage' => null, 'ogType' => 'website', 'canonicalUrl' => null])
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        @include('partials.head', ['title' => $title])
+        @include('partials.head', [
+            'title' => $title,
+            'metaDescription' => $metaDescription,
+            'metaImage' => $metaImage,
+            'ogType' => $ogType,
+            'canonicalUrl' => $canonicalUrl,
+        ])
     </head>
     <body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
         {{-- Subtle dot grid background --}}

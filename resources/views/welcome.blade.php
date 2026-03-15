@@ -1,7 +1,28 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        @include('partials.head', ['title' => 'Software Engineer'])
+        @include('partials.head', [
+            'title' => 'Software Engineer',
+            'metaDescription' => 'James Gifford is a software engineer who builds clean, well-crafted web applications, backend systems, and developer tools.',
+            'ogType' => 'website',
+            'canonicalUrl' => route('home'),
+        ])
+
+        @push('json-ld')
+            <script type="application/ld+json">
+                {!! json_encode([
+                    '@context' => 'https://schema.org',
+                    '@type' => 'Person',
+                    'name' => 'James Gifford',
+                    'jobTitle' => 'Software Engineer',
+                    'url' => route('home'),
+                    'sameAs' => [
+                        'https://github.com/jamesgifford',
+                        'https://linkedin.com/in/jamesgifford',
+                    ],
+                ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+            </script>
+        @endpush
     </head>
     <body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
         {{-- Subtle dot grid background --}}

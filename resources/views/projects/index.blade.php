@@ -1,4 +1,4 @@
-<x-layouts::public title="Projects">
+<x-layouts::public title="Projects" metaDescription="Software projects built by James Gifford, including web applications, backend systems, and developer tools." canonicalUrl="{{ route('projects.index') }}">
     <section class="px-6 py-16 sm:py-24">
         <div class="mx-auto max-w-5xl">
             <div class="mb-12">
