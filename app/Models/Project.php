@@ -13,6 +13,11 @@ class Project extends Model
     /** @use HasFactory<ProjectFactory> */
     use HasFactory;
 
+    /** @var array<string, mixed> */
+    protected $attributes = [
+        'technologies' => '[]',
+    ];
+
     protected $fillable = [
         'name',
         'slug',

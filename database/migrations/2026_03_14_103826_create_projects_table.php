@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('description');
             $table->string('url')->nullable();
-            $table->json('technologies')->default('[]');
+            $table->json('technologies')->nullable();
             $table->unsignedInteger('sort_order')->default(0);
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
