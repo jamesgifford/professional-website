@@ -38,6 +38,13 @@
                 </h1>
             </header>
 
+            {{-- Featured Image --}}
+            @if ($post->featured_image)
+                <div class="mb-12 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800">
+                    <img src="{{ Storage::disk('public')->url($post->featured_image) }}" alt="" class="w-full aspect-[3/1] object-cover" />
+                </div>
+            @endif
+
             {{-- Content --}}
             <div class="prose prose-zinc dark:prose-invert max-w-none prose-headings:tracking-tight prose-a:text-emerald-600 dark:prose-a:text-emerald-400 prose-code:font-mono">
                 {!! str($post->body)->markdown() !!}

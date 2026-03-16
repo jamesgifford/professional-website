@@ -50,6 +50,13 @@
                 @endif
             </header>
 
+            {{-- Featured Image --}}
+            @if ($project->featured_image)
+                <div class="mb-12 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800">
+                    <img src="{{ Storage::disk('public')->url($project->featured_image) }}" alt="" class="w-full aspect-[3/1] object-cover" />
+                </div>
+            @endif
+
             {{-- Screenshots --}}
             @if ($project->screenshots->count())
                 <div class="mb-12 space-y-4">
