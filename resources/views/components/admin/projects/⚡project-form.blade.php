@@ -2,7 +2,6 @@
 
 use App\Models\Project;
 use App\Models\ProjectScreenshot;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -98,12 +97,14 @@ new class extends Component
         ];
 
         if ($this->newFeaturedImage) {
-            if ($this->project?->featured_image) {
-                Storage::disk('public')->delete($this->project->featured_image);
+            if ($this->project?->featured_image_path) {
+                @unlink(public_path($this->project->featured_image_path));
             }
-            $data['featured_image'] = $this->newFeaturedImage->store('featured-images', 'public');
-        } elseif ($this->removeFeaturedImage && $this->project?->featured_image) {
-            Storage::disk('public')->delete($this->project->featured_image);
+            $filename = $this->newFeaturedImage->hashName();
+            $this->newFeaturedImage->move(public_path('images/featured'), $filename);
+            $data['featured_image'] = $filename;
+        } elseif ($this->removeFeaturedImage && $this->project?->featured_image_path) {
+            @unlink(public_path($this->project->featured_image_path));
             $data['featured_image'] = null;
         }
 
@@ -126,9 +127,10 @@ new class extends Component
         // Store new screenshots
         $maxOrder = $this->project->screenshots()->max('sort_order') ?? 0;
         foreach ($this->newScreenshots as $file) {
-            $path = $file->store('screenshots', 'public');
+            $filename = $file->hashName();
+            $file->move(public_path('images/screenshots'), $filename);
             $this->project->screenshots()->create([
-                'path' => $path,
+                'path' => 'images/screenshots/' . $filename,
                 'sort_order' => ++$maxOrder,
             ]);
         }
@@ -161,7 +163,7 @@ new class extends Component
             <flux:label>{{ __('Featured Image') }}</flux:label>
             @if ($project?->featured_image && ! $removeFeaturedImage)
                 <div class="relative group rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-700 mt-2 max-w-sm">
-                    <img src="{{ Storage::disk('public')->url($project->featured_image) }}" alt="" class="w-full aspect-video object-cover" />
+                    <img src="{{ asset($project->featured_image_path) }}" alt="" class="w-full aspect-video object-cover" />
                     <button type="button" wire:click="removeFeaturedImage" class="absolute top-2 right-2 size-6 rounded-full bg-red-500 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-xs">
                         &times;
                     </button>
@@ -184,7 +186,7 @@ new class extends Component
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-2">
                     @foreach ($existingScreenshots as $index => $screenshot)
                         <div wire:key="existing-{{ $screenshot['id'] }}" class="relative group rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-700">
-                            <img src="{{ Storage::disk('public')->url($screenshot['path']) }}" alt="{{ $screenshot['alt_text'] ?? '' }}" class="w-full aspect-video object-cover" />
+                            <img src="{{ asset($screenshot['path']) }}" alt="{{ $screenshot['alt_text'] ?? '' }}" class="w-full aspect-video object-cover" />
                             <button type="button" wire:click="removeExistingScreenshot({{ $index }})" class="absolute top-2 right-2 size-6 rounded-full bg-red-500 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-xs">
                                 &times;
                             </button>

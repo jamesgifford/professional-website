@@ -1,7 +1,7 @@
 <x-layouts::public
     :title="$post->title"
     :metaDescription="$post->excerpt"
-    :metaImage="$post->featured_image ? Storage::disk('public')->url($post->featured_image) : null"
+    :metaImage="$post->featured_image_path ? asset($post->featured_image_path) : null"
     ogType="article"
     :canonicalUrl="route('blog.show', $post)"
 >
@@ -19,7 +19,7 @@
                     'url' => route('home'),
                 ],
                 'url' => route('blog.show', $post),
-            ] + ($post->featured_image ? ['image' => Storage::disk('public')->url($post->featured_image)] : []), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+            ] + ($post->featured_image_path ? ['image' => asset($post->featured_image_path)] : []), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
         </script>
     @endpush
 
@@ -41,7 +41,7 @@
             {{-- Featured Image --}}
             @if ($post->featured_image)
                 <div class="mb-12 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800">
-                    <img src="{{ Storage::disk('public')->url($post->featured_image) }}" alt="" class="w-full aspect-[3/1] object-cover" />
+                    <img src="{{ asset($post->featured_image_path) }}" alt="" class="w-full aspect-[3/1] object-cover" />
                 </div>
             @endif
 

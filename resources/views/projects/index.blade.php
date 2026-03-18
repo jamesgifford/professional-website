@@ -12,7 +12,7 @@
                     <article class="group">
                         <a href="{{ route('projects.show', $project) }}" class="block rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-950/95 overflow-hidden hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
                             @if ($project->featured_image)
-                                <img src="{{ Storage::disk('public')->url($project->featured_image) }}" alt="" class="w-full aspect-[3/1] object-cover" />
+                                <img src="{{ asset($project->featured_image_path) }}" alt="" class="w-full aspect-[3/1] object-cover" />
                             @endif
                             <div class="p-6">
                                 <h2 class="text-xl font-medium group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">

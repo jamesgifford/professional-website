@@ -1,7 +1,7 @@
 <x-layouts::public
     :title="$project->name"
     :metaDescription="Str::limit(strip_tags($project->description), 160)"
-    :metaImage="$project->featured_image ? Storage::disk('public')->url($project->featured_image) : null"
+    :metaImage="$project->featured_image_path ? asset($project->featured_image_path) : null"
     :canonicalUrl="route('projects.show', $project)"
 >
     @push('json-ld')
@@ -17,7 +17,7 @@
                     'url' => route('home'),
                 ],
                 'url' => route('projects.show', $project),
-            ] + ($project->featured_image ? ['image' => Storage::disk('public')->url($project->featured_image)] : []) + ($project->url ? ['installUrl' => $project->url] : []), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+            ] + ($project->featured_image_path ? ['image' => asset($project->featured_image_path)] : []) + ($project->url ? ['installUrl' => $project->url] : []), JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
         </script>
     @endpush
 
@@ -53,7 +53,7 @@
             {{-- Featured Image --}}
             @if ($project->featured_image)
                 <div class="mb-12 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800">
-                    <img src="{{ Storage::disk('public')->url($project->featured_image) }}" alt="" class="w-full aspect-[3/1] object-cover" />
+                    <img src="{{ asset($project->featured_image_path) }}" alt="" class="w-full aspect-[3/1] object-cover" />
                 </div>
             @endif
 
@@ -63,7 +63,7 @@
                     @foreach ($project->screenshots as $screenshot)
                         <div class="rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800">
                             <img
-                                src="{{ Storage::disk('public')->url($screenshot->path) }}"
+                                src="{{ asset($screenshot->path) }}"
                                 alt="{{ $screenshot->alt_text ?? $project->name }}"
                                 class="w-full"
                                 loading="lazy"

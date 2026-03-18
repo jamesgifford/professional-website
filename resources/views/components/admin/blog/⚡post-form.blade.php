@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Post;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -66,12 +65,14 @@ new class extends Component
         ];
 
         if ($this->newFeaturedImage) {
-            if ($this->post?->featured_image) {
-                Storage::disk('public')->delete($this->post->featured_image);
+            if ($this->post?->featured_image_path) {
+                @unlink(public_path($this->post->featured_image_path));
             }
-            $data['featured_image'] = $this->newFeaturedImage->store('featured-images', 'public');
-        } elseif ($this->removeFeaturedImage && $this->post?->featured_image) {
-            Storage::disk('public')->delete($this->post->featured_image);
+            $filename = $this->newFeaturedImage->hashName();
+            $this->newFeaturedImage->move(public_path('images/featured'), $filename);
+            $data['featured_image'] = $filename;
+        } elseif ($this->removeFeaturedImage && $this->post?->featured_image_path) {
+            @unlink(public_path($this->post->featured_image_path));
             $data['featured_image'] = null;
         }
 
@@ -113,7 +114,7 @@ new class extends Component
             <flux:label>{{ __('Featured Image') }}</flux:label>
             @if ($post?->featured_image && ! $removeFeaturedImage)
                 <div class="relative group rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-700 mt-2 max-w-sm">
-                    <img src="{{ Storage::disk('public')->url($post->featured_image) }}" alt="" class="w-full aspect-video object-cover" />
+                    <img src="{{ asset($post->featured_image_path) }}" alt="" class="w-full aspect-video object-cover" />
                     <button type="button" wire:click="removeFeaturedImage" class="absolute top-2 right-2 size-6 rounded-full bg-red-500 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-xs">
                         &times;
                     </button>

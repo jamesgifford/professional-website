@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a0e2e"/>
+      <stop offset="50%" stop-color="#2d1b4e"/>
+      <stop offset="100%" stop-color="#1a0e2e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+
+  <!-- PHP shifted down 25px -->
+  <g>
+    <text x="55" y="423" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="340" font-weight="900" fill="#2a1845" letter-spacing="-10">PHP</text>
+    <text x="56" y="422" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="340" font-weight="900" fill="#2e1c4a" letter-spacing="-10">PHP</text>
+    <text x="57" y="421" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="340" font-weight="900" fill="#321f50" letter-spacing="-10">PHP</text>
+    <text x="58" y="420" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="340" font-weight="900" fill="#362256" letter-spacing="-10">PHP</text>
+    <text x="59" y="419" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="340" font-weight="900" fill="#3a265c" letter-spacing="-10">PHP</text>
+    <text x="60" y="418" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="340" font-weight="900" fill="#3e2a62" letter-spacing="-10">PHP</text>
+    <text x="61" y="417" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="340" font-weight="900" fill="#422e68" letter-spacing="-10">PHP</text>
+    <text x="62" y="416" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="340" font-weight="900" fill="#46326e" letter-spacing="-10">PHP</text>
+    <text x="63" y="415" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="340" font-weight="900" fill="#4a3674" letter-spacing="-10">PHP</text>
+    <text x="64" y="414" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="340" font-weight="900" fill="#584080" letter-spacing="-10">PHP</text>
+  </g>
+
+  <!-- 73.4% unchanged -->
+  <g transform="translate(810, 510) skewY(-5) skewX(-3)">
+    <text x="0" y="30" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="260" font-weight="800" fill="#100820" text-anchor="middle" letter-spacing="-7">73.4%</text>
+    <text x="-2" y="28" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="260" font-weight="800" fill="#160c28" text-anchor="middle" letter-spacing="-7">73.4%</text>
+    <text x="-4" y="26" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="260" font-weight="800" fill="#1c1030" text-anchor="middle" letter-spacing="-7">73.4%</text>
+    <text x="-6" y="24" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="260" font-weight="800" fill="#221438" text-anchor="middle" letter-spacing="-7">73.4%</text>
+    <text x="-8" y="22" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="260" font-weight="800" fill="#281842" text-anchor="middle" letter-spacing="-7">73.4%</text>
+    <text x="-10" y="20" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="260" font-weight="800" fill="#2e1c4c" text-anchor="middle" letter-spacing="-7">73.4%</text>
+    <text x="-12" y="18" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="260" font-weight="800" fill="#352256" text-anchor="middle" letter-spacing="-7">73.4%</text>
+    <text x="-14" y="16" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="260" font-weight="800" fill="#3c2860" text-anchor="middle" letter-spacing="-7">73.4%</text>
+    <text x="-16" y="14" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="260" font-weight="800" fill="#44306a" text-anchor="middle" letter-spacing="-7">73.4%</text>
+    <text x="-18" y="12" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="260" font-weight="800" fill="#4c3874" text-anchor="middle" letter-spacing="-7">73.4%</text>
+    <text x="-20" y="10" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="260" font-weight="800" fill="#54407e" text-anchor="middle" letter-spacing="-7">73.4%</text>
+    <text x="-22" y="8" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="260" font-weight="800" fill="#5e4a8a" text-anchor="middle" letter-spacing="-7">73.4%</text>
+    <text x="-24" y="6" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="260" font-weight="800" fill="#685496" text-anchor="middle" letter-spacing="-7">73.4%</text>
+    <text x="-26" y="4" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="260" font-weight="800" fill="#7560A4" text-anchor="middle" letter-spacing="-7">73.4%</text>
+    <text x="-28" y="2" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="260" font-weight="800" fill="#826CB2" text-anchor="middle" letter-spacing="-7">73.4%</text>
+    <text x="-30" y="0" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="260" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="-7">73.4%</text>
+  </g>
+</svg>

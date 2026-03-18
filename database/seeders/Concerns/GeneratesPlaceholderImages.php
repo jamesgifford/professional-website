@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Concerns;
 
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 trait GeneratesPlaceholderImages
 {
@@ -85,11 +85,11 @@ trait GeneratesPlaceholderImages
             imagestring($image, 3, $subtitleX, $labelY + 30, $subtitle, $muted);
         }
 
-        Storage::disk('public')->makeDirectory($directory);
-        $filename = $directory.'/'.fake()->uuid().'.png';
-        $fullPath = Storage::disk('public')->path($filename);
+        $fullDir = public_path($directory);
+        File::ensureDirectoryExists($fullDir);
+        $filename = fake()->uuid().'.png';
 
-        imagepng($image, $fullPath);
+        imagepng($image, $fullDir.'/'.$filename);
         imagedestroy($image);
 
         return $filename;

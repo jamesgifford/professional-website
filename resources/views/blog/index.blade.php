@@ -12,7 +12,7 @@
                     <article class="group">
                         <a href="{{ route('blog.show', $post) }}" class="block rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-950/95 overflow-hidden hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
                             @if ($post->featured_image)
-                                <img src="{{ Storage::disk('public')->url($post->featured_image) }}" alt="" class="w-full aspect-[3/1] object-cover" />
+                                <img src="{{ asset($post->featured_image_path) }}" alt="" class="w-full aspect-[3/1] object-cover" />
                             @endif
                             <div class="p-6">
                                 <div class="flex items-center gap-3 mb-3">

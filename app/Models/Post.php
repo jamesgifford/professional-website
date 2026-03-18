@@ -21,6 +21,13 @@ class Post extends Model
         'published_at',
     ];
 
+    public function getFeaturedImagePathAttribute(): ?string
+    {
+        $filename = $this->attributes['featured_image'] ?? null;
+
+        return $filename ? 'images/featured/'.$filename : null;
+    }
+
     /**
      * @return array<string, string>
      */

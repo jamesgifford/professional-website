@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Project;
 use Database\Seeders\Concerns\GeneratesPlaceholderImages;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ProjectSeeder extends Seeder
 {
@@ -16,7 +16,7 @@ class ProjectSeeder extends Seeder
      */
     public function run(): void
     {
-        Storage::disk('public')->deleteDirectory('screenshots');
+        File::cleanDirectory(public_path('images/screenshots'));
 
         $projects = Project::factory()->count(8)->create();
         Project::factory()->draft()->count(2)->create();
@@ -29,7 +29,7 @@ class ProjectSeeder extends Seeder
                 $project->update([
                     'featured_image' => $this->generatePlaceholderImage(
                         label: $project->name,
-                        directory: 'featured-images',
+                        directory: 'images/featured',
                         subtitle: 'Featured',
                         palette: $palette,
                     ),
@@ -39,14 +39,14 @@ class ProjectSeeder extends Seeder
             // Screenshots
             $count = rand(1, 5);
             for ($i = 1; $i <= $count; $i++) {
-                $path = $this->generatePlaceholderImage(
+                $filename = $this->generatePlaceholderImage(
                     label: $project->name,
-                    directory: 'screenshots',
+                    directory: 'images/screenshots',
                     subtitle: "Screenshot {$i} of {$count}",
                     palette: $palette,
                 );
                 $project->screenshots()->create([
-                    'path' => $path,
+                    'path' => 'images/screenshots/'.$filename,
                     'alt_text' => $project->name.' - Screenshot '.$i,
                     'sort_order' => $i,
                 ]);
