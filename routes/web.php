@@ -8,7 +8,7 @@ Route::view('/', 'welcome')->name('home');
 Route::view('career', 'career')->name('career');
 
 Route::get('robots.txt', function () {
-    return response("User-agent: *\nDisallow: /admin/\nDisallow: /dashboard\n\nSitemap: ".route('sitemap'), 200)
+    return response("User-agent: *\nDisallow: /admin/\nDisallow: /dashboard\nDisallow: /login\nDisallow: /register\nDisallow: /settings\nDisallow: /forgot-password\nDisallow: /reset-password\nDisallow: /email/\nDisallow: /two-factor-challenge\nDisallow: /user/\n\nSitemap: ".route('sitemap'), 200)
         ->header('Content-Type', 'text/plain');
 });
 
