@@ -19,6 +19,13 @@ class ProjectScreenshot extends Model
         'sort_order',
     ];
 
+    public function getFullPathAttribute(): ?string
+    {
+        $filename = $this->attributes['path'] ?? null;
+
+        return $filename ? 'images/screenshots/'.$filename : null;
+    }
+
     /**
      * @return BelongsTo<Project, $this>
      */

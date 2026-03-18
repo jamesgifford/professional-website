@@ -46,7 +46,7 @@ class ProjectSeeder extends Seeder
                     palette: $palette,
                 );
                 $project->screenshots()->create([
-                    'path' => 'images/screenshots/'.$filename,
+                    'path' => $filename,
                     'alt_text' => $project->name.' - Screenshot '.$i,
                     'sort_order' => $i,
                 ]);

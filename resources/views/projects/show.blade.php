@@ -63,7 +63,7 @@
                     @foreach ($project->screenshots as $screenshot)
                         <div class="rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800">
                             <img
-                                src="{{ asset($screenshot->path) }}"
+                                src="{{ asset($screenshot->full_path) }}"
                                 alt="{{ $screenshot->alt_text ?? $project->name }}"
                                 class="w-full"
                                 loading="lazy"

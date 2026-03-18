@@ -40,7 +40,7 @@ new class extends Component
             $this->technologiesInput = implode(', ', $project->technologies ?? []);
             $this->published = $project->isPublished();
             $this->existingScreenshots = $project->screenshots
-                ->map(fn (ProjectScreenshot $s) => ['id' => $s->id, 'path' => $s->path, 'alt_text' => $s->alt_text])
+                ->map(fn (ProjectScreenshot $s) => ['id' => $s->id, 'path' => $s->full_path, 'alt_text' => $s->alt_text])
                 ->toArray();
         }
     }
@@ -130,7 +130,7 @@ new class extends Component
             $filename = $file->hashName();
             $file->move(public_path('images/screenshots'), $filename);
             $this->project->screenshots()->create([
-                'path' => 'images/screenshots/' . $filename,
+                'path' => $filename,
                 'sort_order' => ++$maxOrder,
             ]);
         }
