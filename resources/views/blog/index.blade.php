@@ -54,4 +54,6 @@
             @endif
         </div>
     </section>
+
+    @include('partials.contact')
 </x-layouts::public>

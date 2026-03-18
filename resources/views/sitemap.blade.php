@@ -6,6 +6,11 @@
         <priority>1.0</priority>
     </url>
     <url>
+        <loc>{{ route('career') }}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>{{ route('blog.index') }}</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>

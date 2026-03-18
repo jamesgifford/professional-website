@@ -58,4 +58,6 @@
             </footer>
         </div>
     </article>
+
+    @include('partials.contact')
 </x-layouts::public>

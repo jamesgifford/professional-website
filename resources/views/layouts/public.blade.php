@@ -25,10 +25,10 @@
                 </a>
                 <div class="flex items-center gap-6">
                     <a href="{{ route('home') }}#about" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">about</a>
-                    <a href="{{ route('home') }}#work" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">work</a>
+                    <a href="{{ route('career') }}" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors {{ request()->routeIs('career') ? '!text-zinc-900 dark:!text-zinc-100' : '' }}">career</a>
                     <a href="{{ route('projects.index') }}" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors {{ request()->routeIs('projects.*') ? '!text-zinc-900 dark:!text-zinc-100' : '' }}">projects</a>
                     <a href="{{ route('blog.index') }}" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors {{ request()->routeIs('blog.*') ? '!text-zinc-900 dark:!text-zinc-100' : '' }}">thoughts</a>
-                    <a href="{{ route('home') }}#contact" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">contact</a>
+                    <a href="#contact" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">contact</a>
                 </div>
             </nav>
         </header>
@@ -43,9 +43,6 @@
             <div class="mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p class="font-mono text-xs text-zinc-400 dark:text-zinc-600">
                     &copy; {{ date('Y') }} James Gifford
-                </p>
-                <p class="font-mono text-xs text-zinc-400 dark:text-zinc-600">
-                    Built with Laravel
                 </p>
             </div>
         </footer>

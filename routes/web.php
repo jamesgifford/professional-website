@@ -5,6 +5,7 @@ use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
+Route::view('career', 'career')->name('career');
 
 Route::get('robots.txt', function () {
     return response("User-agent: *\nDisallow: /admin/\nDisallow: /dashboard\n\nSitemap: ".route('sitemap'), 200)
