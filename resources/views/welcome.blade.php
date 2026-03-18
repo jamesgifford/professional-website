@@ -82,55 +82,143 @@
                     <div class="grid lg:grid-cols-12 gap-12 lg:gap-16">
                         <div class="lg:col-span-4">
                             <p class="font-mono text-xs text-emerald-600 dark:text-emerald-400 mb-2 tracking-wide bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md rounded-lg px-3 py-1.5 w-fit">// about</p>
-                            <h2 class="text-3xl font-semibold tracking-tight bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md rounded-lg px-3 py-1.5 w-fit">Background</h2>
+                            <h2 class="text-3xl font-semibold tracking-tight bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md rounded-lg px-3 py-1.5 w-fit">My Background</h2>
                         </div>
                         <div class="lg:col-span-8 space-y-6 text-zinc-600 dark:text-zinc-400 leading-relaxed">
                             <p class="bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md rounded-lg px-3 py-1.5">
-                                I'm a software engineer who enjoys building clean, well-crafted applications.
-                                I focus on writing code that's maintainable, performant, and solves real problems.
+                                I'm a software engineer with 20 years of experience building web applications, mostly for startups and SaaS companies. I've worked on calendar platforms used by hundreds of thousands of businesses, music databases serving over 100 million users, lead generation tools, e-commerce systems, and job boards for medical staffing.
                             </p>
                             <p class="bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md rounded-lg px-3 py-1.5">
-                                Whether it's architecting a backend system, building interactive user interfaces,
-                                or automating workflows, I bring a thoughtful approach to every project.
+                                My primary stack is PHP and Laravel, but I've worked across the full stack throughout my career: JavaScript, TypeScript, React, Vue, MySQL, Redis, Stripe integrations, background job queues, database schema design at scale. I care more about choosing the right tool for the problem than being loyal to any one technology.
+                            </p>
+                            <p class="bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md rounded-lg px-3 py-1.5">
+                                Most recently I founded Progravity, a software company where I'm building my own SaaS products. The first is Mentioned, a brand monitoring tool that tracks where businesses appear online, including in AI-generated search results, which is a space that's changing fast and that most existing tools haven't caught up with yet.
+                            </p>
+                            <p class="bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md rounded-lg px-3 py-1.5">
+                                I've also been leaning heavily into AI-assisted development, not as a replacement for engineering judgment, but as a way to move faster on the mechanical parts and spend more time on the decisions that actually matter. I've written about that experience on this site.
+                            </p>
+                            <p class="bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md rounded-lg px-3 py-1.5">
+                                I'm currently open to remote senior engineering or technical leadership roles, particularly at early-stage startups where I can have a broad impact. If that sounds like your team, I'd love to hear from you.
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {{-- Work / Skills --}}
+            {{-- Work --}}
             <section id="work" class="px-6 py-24 sm:py-32 border-t border-zinc-200 dark:border-zinc-800">
                 <div class="mx-auto max-w-5xl">
                     <div class="mb-12">
-                        <p class="font-mono text-xs text-emerald-600 dark:text-emerald-400 mb-2 tracking-wide bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md rounded-lg px-3 py-1.5 w-fit">// what I do</p>
-                        <h2 class="text-3xl font-semibold tracking-tight bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md rounded-lg px-3 py-1.5 w-fit">Areas of Focus</h2>
+                        <p class="font-mono text-xs text-emerald-600 dark:text-emerald-400 mb-2 tracking-wide bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md rounded-lg px-3 py-1.5 w-fit">// work</p>
+                        <h2 class="text-3xl font-semibold tracking-tight bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md rounded-lg px-3 py-1.5 w-fit">What I Do</h2>
                     </div>
 
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="group">
                             <div class="p-6 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-950/95 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors h-full">
                                 <div class="font-mono text-xs text-zinc-400 dark:text-zinc-600 mb-3">01</div>
-                                <h3 class="text-lg font-medium mb-2">Web Applications</h3>
+                                <h3 class="text-lg font-medium mb-2">Product Development</h3>
                                 <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                                    Full-stack web development with modern frameworks and tools, from concept to deployment.
+                                    End-to-end development of software from concept and architecture through billing, launch, and iteration.
                                 </p>
                             </div>
                         </div>
                         <div class="group">
                             <div class="p-6 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-950/95 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors h-full">
                                 <div class="font-mono text-xs text-zinc-400 dark:text-zinc-600 mb-3">02</div>
-                                <h3 class="text-lg font-medium mb-2">Backend Systems</h3>
+                                <h3 class="text-lg font-medium mb-2">System Architecture & Design</h3>
                                 <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                                    Scalable APIs, data pipelines, and server-side architecture built for reliability.
+                                    Planning and building systems that are maintainable today and scalable tomorrow. Experienced in platform modernization and large-scale refactoring.
                                 </p>
                             </div>
                         </div>
                         <div class="group">
                             <div class="p-6 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-950/95 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors h-full">
                                 <div class="font-mono text-xs text-zinc-400 dark:text-zinc-600 mb-3">03</div>
-                                <h3 class="text-lg font-medium mb-2">Developer Tools</h3>
+                                <h3 class="text-lg font-medium mb-2">Full-Stack Web Development</h3>
                                 <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                                    CLI tools, automation scripts, and integrations that make development smoother.
+                                    Building complete web applications from database to UI, with a focus on clean architecture and reliable delivery.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="p-6 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-950/95 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors h-full">
+                                <div class="font-mono text-xs text-zinc-400 dark:text-zinc-600 mb-3">04</div>
+                                <h3 class="text-lg font-medium mb-2">API Design & Integration</h3>
+                                <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                                    Designing developer-friendly APIs and integrating with third-party services, payment processors, and data providers.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="p-6 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-950/95 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors h-full">
+                                <div class="font-mono text-xs text-zinc-400 dark:text-zinc-600 mb-3">05</div>
+                                <h3 class="text-lg font-medium mb-2">Database Design & Optimization</h3>
+                                <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                                    Schema design, query performance tuning, and data modeling for applications managing millions to billions of records.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="p-6 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-950/95 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors h-full">
+                                <div class="font-mono text-xs text-zinc-400 dark:text-zinc-600 mb-3">06</div>
+                                <h3 class="text-lg font-medium mb-2">Billing & Subscription Systems</h3>
+                                <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                                    Implementing subscription billing, plan management, payment processing, and the self-service experiences that reduce support overhead.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="p-6 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-950/95 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors h-full">
+                                <div class="font-mono text-xs text-zinc-400 dark:text-zinc-600 mb-3">07</div>
+                                <h3 class="text-lg font-medium mb-2">Background Processing & Data Pipelines</h3>
+                                <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                                    Designing asynchronous systems for data ingestion, scheduled enrichment, rate-limited API orchestration, and long-running workflows.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="p-6 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-950/95 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors h-full">
+                                <div class="font-mono text-xs text-zinc-400 dark:text-zinc-600 mb-3">08</div>
+                                <h3 class="text-lg font-medium mb-2">AI-Assisted Development</h3>
+                                <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                                    Integrating AI tools into professional development workflows to accelerate delivery without sacrificing architectural quality.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="p-6 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-950/95 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors h-full">
+                                <div class="font-mono text-xs text-zinc-400 dark:text-zinc-600 mb-3">09</div>
+                                <h3 class="text-lg font-medium mb-2">Legacy Modernization</h3>
+                                <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                                    Bringing aging codebases into the present by improving reliability, performance, and developer experience without starting from scratch.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="p-6 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-950/95 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors h-full">
+                                <div class="font-mono text-xs text-zinc-400 dark:text-zinc-600 mb-3">10</div>
+                                <h3 class="text-lg font-medium mb-2">Technical Leadership & Mentorship</h3>
+                                <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                                    Leading small engineering teams, establishing code review and documentation practices, and helping junior developers grow.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="p-6 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-950/95 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors h-full">
+                                <div class="font-mono text-xs text-zinc-400 dark:text-zinc-600 mb-3">11</div>
+                                <h3 class="text-lg font-medium mb-2">Software Consultancy</h3>
+                                <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                                    Advising businesses on technical strategy, architecture decisions, and build-vs-buy tradeoffs for web-based products.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <div class="p-6 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-950/95 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors h-full">
+                                <div class="font-mono text-xs text-zinc-400 dark:text-zinc-600 mb-3">12</div>
+                                <h3 class="text-lg font-medium mb-2">Remote Team Engineering</h3>
+                                <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                                    Building effective engineering workflows for distributed teams with documentation-first practices, async communication, and self-directed delivery.
                                 </p>
                             </div>
                         </div>
@@ -148,7 +236,7 @@
                         </div>
                         <div class="lg:col-span-8">
                             <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-8 bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md rounded-lg px-3 py-1.5 w-fit">
-                                Have a project in mind or just want to chat? I'd love to hear from you.
+                                Have a project, a role, or just want to connect? I'd love to hear from you.
                             </p>
                             <div class="flex flex-wrap gap-4">
                                 <a href="mailto:james@jamesgifford.com"
