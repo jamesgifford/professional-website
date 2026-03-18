@@ -62,5 +62,14 @@
         </div>
 
         @fluxScripts
+
+        <script>
+            document.querySelectorAll('.prose a').forEach(function (link) {
+                if (link.hostname && link.hostname !== window.location.hostname) {
+                    link.setAttribute('target', '_blank');
+                    link.setAttribute('rel', 'noopener noreferrer');
+                }
+            });
+        </script>
     </body>
 </html>
