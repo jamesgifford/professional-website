@@ -12,8 +12,8 @@
         ])
     </head>
     <body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
-        {{-- Subtle dot grid background --}}
-        <div class="fixed inset-0 -z-10 opacity-[0.03] dark:opacity-[0.06]"
+        {{-- Blueprint dot grid --}}
+        <div class="fixed inset-0 -z-[5] opacity-[0.03] dark:opacity-[0.06]"
              style="background-image: radial-gradient(circle, currentColor 1px, transparent 1px); background-size: 24px 24px;">
         </div>
 
@@ -38,7 +38,8 @@
         </main>
 
         {{-- Footer --}}
-        <footer class="px-6 py-8 border-t border-zinc-200 dark:border-zinc-800">
+        <footer class="relative px-6 py-8 bg-zinc-50/80 dark:bg-zinc-950/80 backdrop-blur-md">
+            <div class="absolute inset-x-0 -top-6 h-6 pointer-events-none bg-gradient-to-b from-transparent to-zinc-50/80 dark:to-zinc-950/80 backdrop-blur-[1px]" aria-hidden="true"></div>
             <div class="mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p class="font-mono text-xs text-zinc-400 dark:text-zinc-600">
                     &copy; {{ date('Y') }} James Gifford

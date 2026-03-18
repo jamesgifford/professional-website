@@ -1,3 +1,4 @@
+import { initCircleBackground } from './circle-background.js';
 import hljs from 'highlight.js/lib/core';
 
 import bash from 'highlight.js/lib/languages/bash';
@@ -21,3 +22,5 @@ hljs.registerLanguage('typescript', typescript);
 document.addEventListener('DOMContentLoaded', () => {
     hljs.highlightAll();
 });
+
+initCircleBackground();
