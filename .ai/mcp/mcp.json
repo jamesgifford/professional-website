@@ -6,6 +6,15 @@
         "/Users/jamesgifford/Projects/James Gifford/Websites/professional-website/artisan",
         "boost:mcp"
       ]
+    },
+    "herd": {
+      "command": "/Users/jamesgifford/Library/Application Support/Herd/bin/php85",
+      "args": [
+        "/Applications/Herd.app/Contents/Resources/herd-mcp.phar"
+      ],
+      "env": {
+        "SITE_PATH": "/Users/jamesgifford/Projects/James Gifford/Websites/professional-website"
+      }
     }
   }
 }

@@ -11,6 +11,7 @@
             <a href="{{ route('projects.index') }}" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors {{ request()->routeIs('projects.*') ? '!text-zinc-900 dark:!text-zinc-100' : '' }}">projects</a>
             <a href="{{ route('blog.index') }}" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors {{ request()->routeIs('blog.*') ? '!text-zinc-900 dark:!text-zinc-100' : '' }}">thoughts</a>
             <a href="#contact" class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">contact</a>
+            <a href="https://jamesgifford.ai" target="_blank" class="font-mono text-xs text-yellow-600 dark:text-yellow-500 hover:text-yellow-700 dark:hover:text-yellow-400 transition-colors">ai assistant</a>
         </div>
 
         {{-- Mobile hamburger --}}
@@ -32,6 +33,7 @@
             <a href="{{ route('projects.index') }}" x-on:click="open = false" class="font-mono text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors py-2 {{ request()->routeIs('projects.*') ? '!text-zinc-900 dark:!text-zinc-100' : '' }}">projects</a>
             <a href="{{ route('blog.index') }}" x-on:click="open = false" class="font-mono text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors py-2 {{ request()->routeIs('blog.*') ? '!text-zinc-900 dark:!text-zinc-100' : '' }}">thoughts</a>
             <a href="#contact" x-on:click="open = false" class="font-mono text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors py-2">contact</a>
+            <a href="https://jamesgifford.ai" target="_blank" x-on:click="open = false" class="font-mono text-sm text-yellow-600 dark:text-yellow-500 hover:text-yellow-700 dark:hover:text-yellow-400 transition-colors py-2">ai assistant</a>
         </div>
     </div>
 </header>
