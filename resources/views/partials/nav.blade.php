@@ -36,4 +36,14 @@
             <a href="https://jamesgifford.ai" target="_blank" x-on:click="open = false" class="font-mono text-sm text-yellow-600 dark:text-yellow-500 hover:text-yellow-700 dark:hover:text-yellow-400 transition-colors py-2">ai assistant</a>
         </div>
     </div>
+
+    {{-- Announcement banner --}}
+    <div class="border-t border-emerald-200/50 dark:border-emerald-800/30 bg-emerald-50/80 dark:bg-emerald-950/40">
+        <div class="mx-auto max-w-5xl px-6 py-1.5 text-center">
+            <p class="font-mono text-xs text-emerald-800 dark:text-emerald-300">
+                <span class="text-emerald-600 dark:text-emerald-400">new</span> &mdash; Ask my AI assistant anything about me &rarr;
+                <a href="https://jamesgifford.ai" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 font-medium text-emerald-700 dark:text-emerald-200 hover:text-emerald-900 dark:hover:text-emerald-100 transition-colors">jamesgifford.ai</a>
+            </p>
+        </div>
+    </div>
 </header>

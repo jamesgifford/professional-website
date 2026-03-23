@@ -20,7 +20,7 @@
         {{-- Navigation --}}
         @include('partials.nav')
 
-        <main class="pt-20">
+        <main class="pt-28">
             {{ $slot }}
         </main>
 
